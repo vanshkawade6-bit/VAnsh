@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Notion Fitness, Manewada, Nagpur. Your fitness journey starts here.">
+  <title>Notion Fitness | Train With Purpose</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+    :root{--bg:#101010;--panel:#191919;--panel2:#202020;--ink:#f5f3ee;--muted:#aaa69f;--orange:#ff5a1f;--line:rgba(255,255,255,.12);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--orange);font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.eyebrow:before{content:"";width:26px;height:2px;background:var(--orange)}
+    .display{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase;font-weight:900;letter-spacing:-.025em;line-height:.88;margin:0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:15px 21px;border:1px solid var(--orange);background:var(--orange);color:#111;font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;transition:.2s;cursor:pointer}
+    .btn:hover{background:#ff7848;border-color:#ff7848;transform:translateY(-2px)}.btn.outline{background:transparent;color:var(--ink);border-color:rgba(255,255,255,.4)}.btn.outline:hover{border-color:var(--orange);color:var(--orange)}
+    .arrow{font-size:1.15rem}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;position:absolute;top:0;left:0;right:0;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase}
+    .brand-mark{width:34px;height:34px;background:var(--orange);display:grid;place-items:center;color:#111;font-family:"Barlow Condensed";font-size:1.3rem;transform:skew(-9deg)}
+    .brand small{display:block;font:700 .55rem "DM Sans";letter-spacing:.25em;color:var(--muted);margin-top:1px}
+    .navlinks{display:flex;gap:27px;align-items:center;color:#d0ccc5;font-size:.76rem;font-weight:700}.navlinks a:hover{color:var(--orange)}
+    .nav .btn{padding:11px 16px;font-size:.68rem}
+    .hero{min-height:760px;padding:170px 0 100px;position:relative;isolation:isolate;display:flex;align-items:center;background:radial-gradient(ellipse at 76% 45%,rgba(255,90,31,.2),transparent 35%),linear-gradient(110deg,#101010 0%,#111 54%,#1b1715 100%);overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,16,16,.96) 0%,rgba(16,16,16,.72) 50%,rgba(16,16,16,.28) 100%),repeating-linear-gradient(135deg,transparent 0 34px,rgba(255,255,255,.025) 35px 36px)}
+    .hero-art{position:absolute;right:max(-5vw,calc((100vw - 1440px)/2));top:17%;width:min(54vw,700px);height:570px;z-index:-1;opacity:.88}
+    .hero-art .orb{position:absolute;width:440px;height:440px;border:1px solid rgba(255,90,31,.42);border-radius:50%;right:8%;top:4%;box-shadow:0 0 0 35px rgba(255,90,31,.035),0 0 0 75px rgba(255,90,31,.025)}
+    .hero-art .slash{position:absolute;right:16%;top:3%;height:520px;width:230px;background:linear-gradient(145deg,rgba(255,90,31,.9),rgba(255,90,31,.08));clip-path:polygon(45% 0,100% 0,55% 100%,0 100%);opacity:.48}
+    .hero-art svg{position:absolute;width:78%;height:100%;right:0;top:0;filter:drop-shadow(0 25px 35px rgba(0,0,0,.5))}
+    .hero-content{max-width:720px;animation:heroIn .85s cubic-bezier(.2,.75,.2,1) both}
+    @keyframes heroIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero h1{font-size:clamp(4.6rem,10vw,9rem);margin:22px 0 20px;max-width:800px}
+    .hero h1 span{color:var(--orange);display:block}.hero-copy{max-width:480px;color:#c3beb6;line-height:1.75;font-size:1rem;margin:0 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-note{margin-top:45px;display:flex;align-items:center;gap:14px;color:#b5b0a8;font-size:.74rem;letter-spacing:.04em}
+    .hero-note b{color:var(--ink)}.pulse{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 6px rgba(255,90,31,.13)}
+    .ticker{background:var(--orange);color:#111;overflow:hidden;transform:skewY(-2deg);margin:0 0 -2px;position:relative;z-index:2}
+    .ticker-inner{padding:17px 0;white-space:nowrap;font:900 1.1rem "Barlow Condensed";letter-spacing:.15em;text-transform:uppercase;display:flex;justify-content:space-around;gap:35px}
+    .ticker span:after{content:"✳";padding-left:34px}
+    section{padding:110px 0;position:relative}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:48px}
+    .section-head h2{font-size:clamp(3.4rem,7vw,6rem);margin-top:14px}.section-head p{max-width:370px;color:var(--muted);line-height:1.7;margin:0 0 5px}
+    .services{background:#151515}.services:after{content:"MOVE";position:absolute;right:-10px;top:55px;font:900 12rem "Barlow Condensed";color:rgba(255,255,255,.025);pointer-events:none}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .service{padding:28px 24px 30px;min-height:205px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.25s;position:relative;background:transparent}
+    .service:hover{background:#202020;transform:translateY(-4px)}.service svg{width:42px;height:42px;color:var(--orange);margin-bottom:28px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .service h3{font:800 1.55rem "Barlow Condensed";text-transform:uppercase;margin:0 0 8px}.service p{font-size:.8rem;color:var(--muted);line-height:1.55;margin:0}
+    .plans{background:#101010}.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .plan{padding:32px;border:1px solid var(--line);background:var(--panel);min-height:300px;position:relative;display:flex;flex-direction:column}
+    .plan.featured{background:var(--orange);color:#111;border-color:var(--orange);transform:translateY(-10px)}
+    .plan .tag{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--orange);margin-bottom:26px}
+    .plan.featured .tag{color:#111}.plan h3{font:900 2.7rem "Barlow Condensed";text-transform:uppercase;margin:0 0 10px}
+    .plan p{font-size:.84rem;line-height:1.65;color:var(--muted);margin:0 0 28px}.plan.featured p{color:rgba(0,0,0,.72)}
+    .plan .btn{margin-top:auto;align-self:flex-start}.plan.featured .btn{background:#111;color:#fff;border-color:#111}.plan.featured .btn:hover{background:#333}
+    .since{background:#191919;overflow:hidden}.since:before{content:"2013";position:absolute;right:-20px;bottom:-95px;font:900 23rem "Barlow Condensed";color:rgba(255,255,255,.025);line-height:1}
+    .since-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.since h2{font-size:clamp(4rem,8vw,7rem);margin:16px 0 20px}.since h2 span{color:var(--orange)}
+    .since p{color:var(--muted);line-height:1.8;max-width:510px}.year-card{border:1px solid rgba(255,90,31,.45);padding:36px;position:relative;background:linear-gradient(135deg,rgba(255,90,31,.1),transparent)}
+    .year-card strong{font:900 clamp(5rem,10vw,8rem) "Barlow Condensed";color:var(--orange);display:block;line-height:.9}.year-card span{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+    .contact{background:#151515}.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px}.contact h2{font-size:clamp(3.7rem,7vw,6rem);margin:16px 0 25px}.contact-intro{color:var(--muted);line-height:1.8;max-width:420px}
+    .contact-list{margin-top:32px;display:grid;gap:18px}.contact-item{display:flex;gap:15px;align-items:flex-start}.contact-icon{width:38px;height:38px;flex:0 0 38px;border:1px solid rgba(255,90,31,.5);display:grid;place-items:center;color:var(--orange)}
+    .contact-item small{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-bottom:5px}.contact-item strong{font-size:.9rem;line-height:1.55;font-weight:600}
+    .map-wrap{min-height:410px;border:1px solid var(--line);background:#202020;position:relative;overflow:hidden}.map-wrap iframe{width:100%;height:100%;min-height:410px;border:0;filter:grayscale(1) invert(.88) contrast(.85)}
+    .map-label{position:absolute;left:18px;bottom:18px;background:var(--orange);color:#111;padding:12px 16px;font:800 1rem "Barlow Condensed";text-transform:uppercase;letter-spacing:.06em;pointer-events:none}
+    footer{padding:28px 0 90px;border-top:1px solid var(--line);color:#8f8a83;font-size:.72rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-brand{color:var(--ink);font:900 1.4rem "Barlow Condensed";text-transform:uppercase}
+    .mobile-bar{display:none}
+    @media(max-width:900px){.navlinks{gap:15px}.navlinks a:nth-child(3){display:none}.hero-art{right:-17%;opacity:.55;width:70vw}.service-grid{grid-template-columns:repeat(2,1fr)}.since-grid{gap:35px}.contact-grid{gap:30px}}
+    @media(max-width:640px){.wrap{width:min(100% - 34px,var(--max))}.topbar{height:66px}.navlinks{display:none}.nav .btn{padding:10px 12px}.brand{font-size:1.3rem}.hero{min-height:720px;padding:145px 0 85px}.hero-art{width:100vw;right:-47%;top:24%;opacity:.32}.hero h1{font-size:clamp(4.2rem,18vw,6.4rem)}.hero-copy{font-size:.92rem;max-width:370px}.hero-note{margin-top:34px}.ticker-inner{justify-content:flex-start;font-size:1rem;gap:25px}.ticker-inner span{flex:0 0 auto}
+      section{padding:78px 0}.section-head{display:block;margin-bottom:32px}.section-head h2{font-size:4rem}.section-head p{margin-top:18px}.service-grid{grid-template-columns:repeat(2,1fr)}.service{padding:22px 16px;min-height:190px}.service svg{margin-bottom:20px}.service h3{font-size:1.35rem}.service p{font-size:.74rem}.plan-grid{grid-template-columns:1fr;gap:12px}.plan{min-height:260px;padding:26px}.plan.featured{transform:none;order:-1}.since-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.since h2{font-size:4.8rem}.year-card{padding:28px}.year-card strong{font-size:6rem}.contact h2{font-size:4.3rem}.map-wrap,.map-wrap iframe{min-height:330px}.footer-inner{align-items:flex-start;flex-direction:column}.mobile-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;z-index:30;bottom:0;left:0;right:0;padding:9px 12px calc(9px + env(safe-area-inset-bottom));gap:9px;background:rgba(12,12,12,.96);border-top:1px solid var(--line);backdrop-filter:blur(12px)}.mobile-bar a{padding:14px 8px;text-align:center;font-size:.72rem}.mobile-bar .call{background:#242424;border:1px solid #555;color:#fff}.mobile-bar .wa{background:var(--orange);color:#111;border:1px solid var(--orange)}footer{padding-bottom:105px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Notion Fitness home"><span class="brand-mark">N</span><span>Notion Fitness<small>TRAIN WITH PURPOSE</small></span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#plans">Membership</a><a href="#story">Our Story</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="https://wa.me/918010352034?text=Hi%20Notion%20Fitness%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">Join Now <span class="arrow">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb"></div><div class="slash"></div>
+        <svg viewBox="0 0 560 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M270 104c-42 0-76 34-76 76v28h152v-28c0-42-34-76-76-76Z" fill="#ff5a1f" opacity=".9"/>
+          <path d="M194 214c-44 20-74 64-74 115v106h300V329c0-51-30-95-74-115" fill="#292521" stroke="#ff5a1f" stroke-width="3"/>
+          <path d="M120 329 52 444l64 40 93-101M420 329l68 115-64 40-93-101" fill="#25211f" stroke="#ff5a1f" stroke-width="3"/>
+          <path d="M208 435 184 590h78l8-116 8 116h78l-24-155" fill="#302a26" stroke="#ff5a1f" stroke-width="3"/>
+          <path d="M206 250h128M184 286h172" stroke="#ff5a1f" stroke-width="7" opacity=".55"/>
+          <path d="M234 110c-16 15-24 36-24 58M306 110c16 15 24 36 24 58" stroke="#111" stroke-width="8" opacity=".5"/>
+          <circle cx="270" cy="180" r="12" fill="#111"/>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="hero-content">
+          <span class="eyebrow">Manewada, Nagpur · Est. 2013</span>
+          <h1 class="display">Build your<br><span>stronger</span> self.</h1>
+          <p class="hero-copy">Your fitness journey, all in one place. Train with purpose, stay consistent, and take the next step towards a stronger you. <b>Chalo, shuru karte hain.</b></p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/918010352034?text=Hi%20Notion%20Fitness%2C%20I%27d%20like%20to%20join." target="_blank" rel="noopener">Join Now on WhatsApp <span class="arrow">↗</span></a>
+            <a class="btn outline" href="tel:+918010352034">Call Now <span class="arrow">↗</span></a>
+          </div>
+          <div class="hero-note"><span class="pulse"></span><span><b>Notion Fitness</b> · Making fitness part of your lifestyle since 2013</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Fitness motivation"><div class="ticker-inner"><span>Show up</span><span>Get stronger</span><span>Stay consistent</span><span>Own your progress</span></div></div>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">What we offer</span><h2 class="display">Train your<br>way.</h2></div>
+          <p>Choose the kind of movement that works for you. Build strength, improve stamina, and keep showing up.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M7 18v12M13 13v22M18 20h12M35 13v22M41 18v12M13 24h22"/></svg><h3>Weight Training</h3><p>Build strength with focused resistance training.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M8 34h32M12 34l4-18h16l4 18M19 16l-4-6M29 16l4-6M18 24h12"/></svg><h3>Cardio</h3><p>Work on endurance, stamina, and heart health.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M8 31h32M12 31V17h24v14M17 17v-5h14v5M18 23h12"/></svg><h3>Personal Training</h3><p>One-to-one training support for your goals.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><circle cx="24" cy="13" r="5"/><path d="M24 18v13M13 25l11-5 11 5M18 40l6-9 6 9"/></svg><h3>Group Classes</h3><p>Move together, stay motivated, and keep active.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M24 7c-7 8-12 13-12 21a12 12 0 0 0 24 0c0-8-5-13-12-21Z"/><path d="M18 29c1 4 3 6 7 7"/></svg><h3>Zumba</h3><p>Bring energy and rhythm into your workout.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><circle cx="24" cy="11" r="4"/><path d="M24 15v10M24 20l-10 8M24 20l10 8M24 25l-8 14M24 25l8 14"/></svg><h3>Yoga</h3><p>Make space for mobility, balance, and focus.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M12 35 24 9l12 26M16 27h16M10 39h28"/></svg><h3>CrossFit</h3><p>Challenge your strength and overall fitness.</p></article>
+          <article class="service"><svg viewBox="0 0 48 48"><path d="M24 7v34M7 24h34M12 12l24 24M36 12 12 36"/><circle cx="24" cy="24" r="14"/></svg><h3>Diet Plans</h3><p>Ask us about nutrition guidance for your goals.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans" id="plans">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Membership</span><h2 class="display">Your move.<br>Your plan.</h2></div>
+          <p>Ready to get started? Contact the gym for current membership fees, joining details, and available offers.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan"><div class="tag">01 / Flexible start</div><h3>Monthly</h3><p>A month-by-month membership option. Ask us for current fees and details.</p><a class="btn outline" href="https://wa.me/918010352034?text=Hi%2C%20please%20share%20your%20monthly%20membership%20details." target="_blank" rel="noopener">Enquire now <span class="arrow">↗</span></a></article>
+          <article class="plan featured"><div class="tag">02 / Popular option</div><h3>Quarterly</h3><p>Make consistency your routine. Contact us for the current quarterly plan details.</p><a class="btn" href="https://wa.me/918010352034?text=Hi%2C%20please%20share%20your%20quarterly%20membership%20details." target="_blank" rel="noopener">Enquire now <span class="arrow">↗</span></a></article>
+          <article class="plan"><div class="tag">03 / Long-term focus</div><h3>Yearly</h3><p>Planning a longer fitness journey? Ask us about yearly membership options.</p><a class="btn outline" href="https://wa.me/918010352034?text=Hi%2C%20please%20share%20your%20yearly%20membership%20details." target="_blank" rel="noopener">Enquire now <span class="arrow">↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="since" id="story">
+      <div class="wrap since-grid">
+        <div><span class="eyebrow">Our journey</span><h2 class="display">Built on<br><span>consistency.</span></h2><p>Notion Fitness has been part of the Manewada fitness community since 2013. Whether you're starting fresh or building on your routine, take the first step and connect with us.</p><a class="btn" href="#contact">Find the gym <span class="arrow">↗</span></a></div>
+        <div class="year-card"><strong class="count" data-count="2013">0</strong><span>Established in Nagpur</span></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <span class="eyebrow">Let's get moving</span><h2 class="display">Meet us<br>at the gym.</h2>
+          <p class="contact-intro">Have questions about membership or training? Get in touch and we'll help you with the details.</p>
+          <div class="contact-list">
+            <div class="contact-item"><span class="contact-icon">⌖</span><div><small>Visit us</small><strong>House No. 191, Cement Road, near Venu Corner, New Dnyaneshwar Nagar, Manewada, Nagpur, Maharashtra 440027</strong></div></div>
+            <div class="contact-item"><span class="contact-icon">☎</span><div><small>Call us</small><strong><a href="tel:+918010352034">08010352034</a></strong></div></div>
+            <div class="contact-item"><span class="contact-icon">◷</span><div><small>Gym timings</small><strong>6:00 AM – 10:00 AM<br>Sunday: Closed</strong></div></div>
+            <div class="contact-item"><span class="contact-icon">↗</span><div><small>WhatsApp</small><strong><a href="https://wa.me/918010352034" target="_blank" rel="noopener">Chat with Notion Fitness</a></strong></div></div>
+          </div>
+          <p style="font-size:.72rem;color:#817c75;margin-top:22px">Only the operating hours provided are shown here.</p>
+        </div>
+        <div class="map-wrap">
+          <iframe title="Map showing Notion Fitness in Manewada, Nagpur" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=House%20No%20191%2C%20Cement%20Road%2C%20near%20Venu%20Corner%2C%20New%20Dnyaneshwar%20Nagar%2C%20Manewada%2C%20Nagpur%2C%20Maharashtra%20440027&output=embed"></iframe>
+          <div class="map-label">Notion Fitness · Nagpur</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><div><div class="footer-brand">NOTION FITNESS</div><div>Train with purpose. Stay consistent.</div></div><div>© <span id="year"></span> Notion Fitness · Manewada, Nagpur</div><a href="#home">Back to top ↑</a></div></footer>
+  <div class="mobile-bar" aria-label="Quick contact"><a class="call" href="tel:+918010352034">☎ &nbsp; CALL NOW</a><a class="wa" href="https://wa.me/918010352034?text=Hi%20Notion%20Fitness%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WHATSAPP ↗</a></div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const counter = document.querySelector('.count');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (counter) {
+      if (reduceMotion) counter.textContent = counter.dataset.count;
+      else {
+        const target = Number(counter.dataset.count), duration = 1300, start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          counter.textContent = Math.round(target * eased).toString();
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    }
+  </script>
+</body>
+</html>
